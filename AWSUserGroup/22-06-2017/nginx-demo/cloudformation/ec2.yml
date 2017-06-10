@@ -1,0 +1,31 @@
+################################################ Sample EC2 YML ################################################
+AWSTemplateFormatVersion: "2010-09-09"
+Description: "EC2 Instance For Meetup AWS User Group"
+Resources:
+  InstanceSecurityGroupMeetup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupName: "demo-nginx"
+      GroupDescription: "Allow HTTP to EC2 Instance Demo for Meetup AWS User Group"
+      VpcId: "vpc-b0be31d7"
+      SecurityGroupIngress:
+      - IpProtocol: "tcp"
+        FromPort: "80"
+        ToPort: "80"
+        CidrIp: "0.0.0.0/0"
+      SecurityGroupEgress:
+      - IpProtocol: "tcp"
+        FromPort: "80"
+        ToPort: "80"
+        CidrIp: "0.0.0.0/0"
+         
+  EC2InstanceMeetup: 
+    Type: "AWS::EC2::Instance"
+    Properties:
+      AvailabilityZone: "us-east-1a"
+      ImageId: "ami-772aa961"
+      KeyName: "aws-personal"
+      InstanceType: "t2.micro"
+      SecurityGroupIds:
+        - Ref: InstanceSecurityGroupMeetup
+  
