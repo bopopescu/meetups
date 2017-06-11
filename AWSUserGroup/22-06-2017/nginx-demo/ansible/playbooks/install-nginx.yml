@@ -1,7 +1,0 @@
-- name: Install Nginx For Demo CloudFormation - Meetup AWS User Group 
-  hosts: api
-
-  tasks:
-    - name: Update Packages in Ubuntu
-      become: yes
-      shell: apt-get update
