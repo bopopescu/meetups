@@ -1,5 +1,3 @@
-################################################ Sample EC2 YML ################################################
-AWSTemplateFormatVersion: "2010-09-09"
 Description: "EC2 Instance For Meetup AWS User Group"
 Resources:
   InstanceSecurityGroupMeetup:
@@ -33,9 +31,4 @@ Resources:
       Tags: 
         - Key: Name
           Value: demo-nginx-1
-
-Outputs:
-  WebsiteServiceUrl: 
-        Description: URL Nginx Demo 1 - Meetup AWS User Group
-        Value: !GetAtt EC2InstanceMeetup.PublicDnsName
   

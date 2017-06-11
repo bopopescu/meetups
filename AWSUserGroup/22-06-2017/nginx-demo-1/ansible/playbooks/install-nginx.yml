@@ -9,3 +9,19 @@
     - name: Install Nginx For Demo 1 - Meetup AWS User Group
       become: yes
       shell: apt-get install nginx -y
+
+    - name: Downloading Template Html - Meetup AWS User Group
+      become: yes
+      shell: wget https://s3.amazonaws.com/stackaws-meetups/AWSUserGroups/22-06-2017/demo-1/html.zip /opt/
+    
+    - name: Install UNZIP - Meetup AWS User Group
+      become: yes
+      shell: apt-get install unzip -y
+
+    - name: Decompress Folder Template Html - Meetup AWS User Group
+      become: yes
+      shell: unzip /opt/html.zip -d /opt/
+
+    - name: Coping Folder Template Html to Folder Nginx - Meetup AWS User Group
+      become: yes
+      shell: cp -R /opt/html/* /usr/share/nginx/html/
