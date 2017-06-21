@@ -12,7 +12,7 @@
 
     - name: Downloading Template Html - Meetup AWS User Group
       become: yes
-      shell: wget https://s3.amazonaws.com/stackaws-meetups/AWSUserGroups/22-06-2017/demo-1/html.zip /opt/
+      get_url: url=https://s3.amazonaws.com/stackaws-meetups/AWSUserGroups/22-06-2017/demo-1/html.zip  dest=/opt/ mode=0444
     
     - name: Install UNZIP - Meetup AWS User Group
       become: yes
